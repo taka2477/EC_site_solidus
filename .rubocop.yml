@@ -1,0 +1,17 @@
+---
+inherit_from:
+  - .rubocop_airbnb.yml
+  #- .rubocop_todo.yml
+
+Rails:
+  Enabled: true
+
+AllCops:
+  Exclude:
+    - spec/dummy/**/*
+    - bin/*
+    - vendor/bundle/**/*
+    - db/**/*
+    - config/**/*
+    - Gemfile
+
