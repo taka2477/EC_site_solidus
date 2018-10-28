@@ -406,7 +406,6 @@ DEPENDENCIES
   rails (~> 5.2.1)
   rails-erd
   rspec-rails
-  rubocop
   rubocop-airbnb
   sass-rails (~> 5.0)
   solidus
