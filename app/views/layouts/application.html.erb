@@ -9,9 +9,11 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
-    <%= render 'layouts/copyright' %>
+    <div class="main-wrapper">
+      <%= render 'shared/header' %>
+      <%= yield %>
+      <%= render 'shared/footer' %>
+      <%= render 'shared/modals_login_and_signup' %>
+    </div>
   </body>
 </html>
