@@ -1,3 +1,4 @@
+<% provide(:title, "#{@product.name}") %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +7,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Single Product - BIGBAG Store</title>
 
     <!-- PLUGINS CSS STYLE -->
 
@@ -27,6 +27,7 @@
 
     <div class="main-wrapper">
       <%= render 'shared/show_light_section' %>
+
       <!-- MAIN CONTENT SECTION -->
       <section class="mainContent clearfix">
         <div class="container">
@@ -73,7 +74,7 @@
                     <!-- <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Share This</a></li> -->
                   </ul>
                   <h2><%= @product.name %></h2>
-                  <h3>$<%= @product.price %></h3>
+                  <h3><%= @product.display_price %></h3>
                   <p><%= @product.description %></p>
                   <span class="quick-drop">
                     <select name="guiest_id3" id="guiest_id3" class="select-drop">
