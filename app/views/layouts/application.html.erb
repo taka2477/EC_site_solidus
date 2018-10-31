@@ -1,11 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= full_title(yield(:title)) %></title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= render 'shared/default' %>
   </head>
 
   <body>
@@ -13,7 +9,7 @@
       <%= render 'shared/header' %>
       <%= yield %>
       <%= render 'shared/footer' %>
-      <%= render 'shared/modals_login_and_signup' %>
+      <%= render 'shared/modals' %>
     </div>
   </body>
 </html>
