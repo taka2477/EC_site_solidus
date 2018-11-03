@@ -2,7 +2,6 @@
 
 <%= render 'shared/light_section' %>
 
-<!-- MAIN CONTENT SECTION -->
 <section class="mainContent clearfix">
   <div class="container">
     <div class="row singleProduct">
@@ -21,11 +20,11 @@
             <div class="clearfix">
               <div id="thumbcarousel" class="carousel slide" data-interval="false">
                 <div class="carousel-inner">
-                    <% @images.each_with_index do |img, i| %>
-                      <div data-target="#carousel" data-slide-to="<%= i %>" class="thumb">
-                        <%= image_tag img.attachment(:product) %>
-                      </div>
-                    <% end %>
+                  <% @images.each_with_index do |img, i| %>
+                    <div data-target="#carousel" data-slide-to="<%= i %>" class="thumb">
+                      <%= image_tag img.attachment(:product) %>
+                    </div>
+                  <% end %>
                 </div>
                 <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">
                   <span class="glyphicon glyphicon-chevron-left"></span>
