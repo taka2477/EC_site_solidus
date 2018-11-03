@@ -12,7 +12,7 @@
               <div class="carousel-inner">
                 <% @images.each_with_index do |img, i| %>
                   <div class="item <%= "active" if i.zero? %>" data-thumb="<%= i %>">
-                    <%= image_tag img.attachment(:product) %>
+                    <%= image_tag img.attachment(:large) %>
                   </div>
                 <% end %>
               </div>
@@ -37,7 +37,11 @@
           </div>
           <div class="media-body">
             <ul class="list-inline">
-              <li><a href="product_grid_left_sidebar.html"><i class="fa fa-reply" aria-hidden="true"></i>一覧ページへ戻る</a></li>
+              <li>
+                <%= link_to potepan_product_grid_left_sidebar_path do %>
+                  <i class="fa fa-reply" aria-hidden="true"></i>一覧ページへ戻る
+                <% end %>
+              </li>
               <!-- <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Share This</a></li> -->
             </ul>
             <h2><%= @product.name %></h2>
