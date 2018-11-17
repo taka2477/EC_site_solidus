@@ -1,0 +1,17 @@
+<% provide(:title, @product.name) %>
+
+<%= render 'shared/light_section' %>
+
+<section class="mainContent clearfix">
+  <div class="container">
+    <div class="row singleProduct">
+      <div class="col-xs-12">
+        <div class="media">
+          <%= render 'potepan/products/thumbnail' %>
+          <%= render 'potepan/products/product_body' %>
+        </div>
+      </div>
+    </div>
+    <%= render 'potepan/products/related_products' %>
+  </div>
+</section>

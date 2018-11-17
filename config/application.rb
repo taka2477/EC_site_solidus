@@ -28,11 +28,17 @@ module Potepanec
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    config.time_zone = 'Tokyo'
-    config.generators.test_framework = :rspec
-    config.generators.system_tests   = false
-    config.generators.stylesheets    = false
-    config.generators.javascripts    = false
-    config.generators.helper         = false
+    config.generators do |g|
+      g.time_zone = 'Tokyo',
+      g.test_framework = :rspec,
+      g.fixtures       = false,
+      g.view_specs     = false,
+      g.helper_specs   = false,
+      g.routing_specs  = false,
+      g.system_tests   = false,
+      g.stylesheets    = false,
+      g.javascripts    = false,
+      g.helper         = false
+    end
   end
 end
