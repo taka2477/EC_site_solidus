@@ -17,5 +17,9 @@ RSpec.describe Potepan::ProductsController, type: :controller do
     it "responds correct template " do
       expect(response).to render_template :show
     end
+
+    it "assigns product" do
+      expect(assigns(:product)).to eq product
+    end
   end
 end

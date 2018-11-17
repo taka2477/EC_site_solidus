@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%= render 'shared/default' %>
+    <%= render 'layouts/head' %>
   </head>
 
   <body>
     <div class="main-wrapper">
-      <%= render 'shared/header' %>
+      <%= render 'layouts/header' %>
       <%= yield %>
-      <%= render 'shared/footer' %>
-      <%= render 'shared/modals' %>
+      <%= render 'layouts/footer' %>
     </div>
+    <%= render 'layouts/modals' %>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>
