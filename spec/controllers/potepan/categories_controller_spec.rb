@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Potepan::CategoriesController, type: :controller do
   describe "GET #show" do
-    before { get :show, { params: { id: category.id } } }
+    before { get :show, { params: { id: category.root.id } } }
     let!(:category) { create(:taxonomy) }
 
     it "response successfully" do
