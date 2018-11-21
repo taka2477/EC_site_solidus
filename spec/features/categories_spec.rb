@@ -9,10 +9,6 @@ RSpec.feature "Categories", type: :feature do
     visit potepan_category_path(brand_kid.id)
   end
 
-  scenario 'displays correct html' do
-    html = page.html
-  end
-
   scenario 'has correct title' do
     expect(page).to have_title brand_kid.name
     visit potepan_category_path(ruby_shirt.id)
