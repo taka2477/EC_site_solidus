@@ -4,6 +4,10 @@ RSpec.feature "Categories", type: :feature do
   given(:category) { create(:taxonomy, name: "Brand") }
   given(:brand_kid) { category.taxons.create(name: "Ruby") }
   given(:ruby_shirt) { brand_kid.leaves.create(name: "Ruby_shirt") }
+  #given(:product) do
+  #  product = create(:product, name: "T_shirt")
+  #  product.taxons << ruby_shirt
+  #end
 
   background do
     visit potepan_category_path(brand_kid.id)

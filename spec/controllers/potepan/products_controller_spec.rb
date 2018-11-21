@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Potepan::ProductsController, type: :controller do
   describe "GET #show" do
     before { get :show, params: { id: product.id } }
+
     let(:product) { create :product }
 
     it "responds successfully" do
