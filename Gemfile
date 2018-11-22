@@ -30,6 +30,7 @@ group :development, :test do
   gem 'annotate'
   gem 'rails-controller-testing'
   gem 'capybara'
+  gem 'bullet'
 end
 
 group :development do
