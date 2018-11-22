@@ -4,11 +4,11 @@
       <h4>関連商品</h4>
     </div>
   </div>
-  <% @images.each do |img| %>
+  <% @related_products.each do |product| %>
     <div class="col-md-3 col-sm-6 col-xs-12">
       <div class="productBox">
         <div class="productImage clearfix">
-          <%= image_tag img.display_image.attachment.url(:large), :alt　=> img.name %>
+          <%= image_tag product.display_image.attachment.url(:large), :alt　=> product.name %>
           <div class="productMasking">
             <ul class="list-inline btn-group" role="group">
               <li><a data-toggle="modal" href=".login-modal" class="btn btn-default"><i class="fa fa-heart"></i></a></li>
@@ -17,10 +17,10 @@
             </ul>
           </div>
         </div>
-        <%= link_to potepan_product_path(img.id) do %>
+        <%= link_to potepan_product_path(product.id) do %>
           <div class="productCaption clearfix">
-            <h5><%= img.name %></h5>
-            <h3><%= img.display_price %></h3>
+            <h5><%= product.name %></h5>
+            <h3><%= product.display_price %></h3>
           </div>
         <% end %>
       </div>
