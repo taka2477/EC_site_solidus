@@ -7,7 +7,7 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
     let(:bags_product) { create(:product, taxons: [bags]) }
 
     let!(:brand) { create(:taxonomy, name: "brands") }
-    let(:ruby) { create(:taxon, name: "Ruby", parent: category.root, taxonomy: category) }
+    let(:ruby) { create(:taxon, name: "Ruby", parent: brand.root, taxonomy: brand) }
     let(:ruby_product) { create(:product, taxons: [ruby]) }
 
     before do
