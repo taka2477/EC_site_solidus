@@ -25,7 +25,8 @@ RSpec.feature "Categories", type: :feature do
 
   scenario 'examines links of the taxon and visibleness of the product' do
     within('.navbar-side-collapse') do
-      find_link(bag.name).visible?
+      find_link(bag.name).click
+      expect(page).to have_current_path(potepan_category_path(bag.id))
       find_link(ruby.name).click
       expect(page).to have_current_path(potepan_category_path(ruby.id))
     end

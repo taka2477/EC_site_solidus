@@ -2,16 +2,16 @@ require 'rails_helper'
 
 RSpec.describe Potepan::CategoriesController, type: :controller do
   describe "GET #show" do
-    let!(:category) { create(:taxonomy, name: "categories") }
-    let(:bags) { create(:taxon, name: "Bags", parent: category.root, taxonomy: category) }
-    let(:bags_product) { create(:product, taxons: [bags]) }
+    let!(:category)   { create(:taxonomy, name: "category") }
+    let(:bag)         { create(:taxon, name: "bag", parent: category.root, taxonomy: category) }
+    let(:bag_product) { create(:product, taxons: [bag]) }
 
-    let!(:brand) { create(:taxonomy, name: "brands") }
-    let(:ruby) { create(:taxon, name: "Ruby", parent: brand.root, taxonomy: brand) }
+    let!(:brand)       { create(:taxonomy, name: "brand") }
+    let(:ruby)         { create(:taxon, name: "Ruby", parent: brand.root, taxonomy: brand) }
     let(:ruby_product) { create(:product, taxons: [ruby]) }
 
     before do
-      get :show, { params: { id: bags.id } }
+      get :show,  params: { id: bag.id }
     end
 
     context "response check" do
@@ -34,15 +34,11 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
       end
 
       it "assigns correct @taxon" do
-        expect(assigns(:taxon)).to eq bags
-      end
-
-      it "assigns incorrect @taxon" do
-        expect(assigns(:taxon)).not_to eq ruby
+        expect(assigns(:taxon)).to eq bag
       end
 
       it "assigns correct @product" do
-        expect(assigns(:products)).to contain_exactly(bags_product)
+        expect(assigns(:products)).to contain_exactly(bag_product)
       end
 
       it "assigns incorrect @product" do
