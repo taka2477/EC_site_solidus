@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature "Categories", type: :feature do
-  given(:brand) { create(:taxonomy, name: "brands") }
-  given(:ruby) { create(:taxon, name: "ruby", parent: brand.root, taxonomy: brand) }
+  given(:brand)       { create(:taxonomy, name: "brands") }
+  given(:ruby)        { create(:taxon, name: "ruby", parent: brand.root, taxonomy: brand) }
   given!(:ruby_shirt) { create(:product, name: "ruby_shirt", taxons: [ruby]) }
 
-  given(:category) { create(:taxonomy, name: "categories") }
-  given(:bag) { create(:taxon, name: "bags", parent: category.root, taxonomy: category) }
+  given(:category)  { create(:taxonomy, name: "categories") }
+  given(:bag)       { create(:taxon, name: "bags", parent: category.root, taxonomy: category) }
   given!(:ruby_bag) { create(:product, name: "ruby_bag", taxons: [bag]) }
 
   background do
