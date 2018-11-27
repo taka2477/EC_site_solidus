@@ -10,7 +10,7 @@ RSpec.feature "Products", type: :feature do
   given(:shirt) { create(:taxon, name: "shirt", parent: category.root, taxonomy: category) }
 
   given!(:rails_tote)  { create(:product, name: "rails_tote", price: '18.88', taxons: [rails, bag]) }
-  given!(:rails_shirt) { create(:product, name: "rails_shirt", price: '15.55', taxons: [rails, shirt])}
+  given!(:rails_shirt) { create(:product, name: "rails_shirt", price: '15.55', taxons: [rails, shirt]) }
   given!(:ruby_shirt)  { create(:product, name: "ruby_shirt", price: '17.77', taxons: [ruby, shirt]) }
   given!(:ruby_bag)    { create(:product, name: "ruby_bag", price: '16.66', taxons: [bag, ruby]) }
 
@@ -41,14 +41,14 @@ RSpec.feature "Products", type: :feature do
 
   scenario 'displays the product information properly' do
     within('.singleProduct') do
-      #リンク
+      # リンク
       expect(page).to have_current_path(potepan_product_path(ruby_shirt.id))
       expect(page).to have_link '一覧ページへ戻る'
-      #product画像
+      # product画像
       expect(page).to have_css '#carousel'
       expect(page).to have_css '.glyphicon-chevron-left'
       expect(page).to have_css '.glyphicon-chevron-right'
-      #product概要
+      # product概要
       expect(page).to have_selector 'h2', text: ruby_shirt.name
       expect(page).not_to have_selector 'h2', text: ruby_bag.name
       expect(page).to have_selector 'h3', text: ruby_shirt.price
@@ -56,17 +56,17 @@ RSpec.feature "Products", type: :feature do
       expect(page).to have_content ruby_shirt.description
     end
     within('.productsContent') do
-      #不適切な商品が表示されていないこと
+      # 不適切な商品が表示されていないこと
       expect(page).not_to have_content ruby_shirt.name
       expect(page).not_to have_content ruby_shirt.price
       expect(page).not_to have_content rails_tote.name
       expect(page).not_to have_content rails_tote.price
-      #同一ブランド
+      # 同一ブランド
       expect(page).to have_content ruby_bag.name
       expect(page).to have_content ruby_bag.price
       click_on ruby_bag.name
       expect(page).to have_current_path(potepan_product_path(ruby_bag.id))
-      #同一カテゴリ
+      # 同一カテゴリ
       visit potepan_product_path(ruby_shirt.id)
       expect(page).to have_content rails_shirt.name
       expect(page).to have_content rails_shirt.price

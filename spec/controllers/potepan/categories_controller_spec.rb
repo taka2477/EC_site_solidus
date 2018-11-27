@@ -11,7 +11,7 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
     let(:ruby_product) { create(:product, taxons: [ruby]) }
 
     before do
-      get :show,  params: { id: bag.id }
+      get :show, params: { id: bag.id }
     end
 
     context "response check" do
@@ -46,3 +46,4 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
       end
     end
   end
+end
