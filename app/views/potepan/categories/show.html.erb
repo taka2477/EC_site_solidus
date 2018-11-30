@@ -1,5 +1,5 @@
 <% provide(:title, @taxon.name) %>
-<%= render partial: 'potepan/categories/light_section', :locals => { taxon: @taxon } %>
+<%= render 'light_section', taxon: @taxon %>
 <!-- MAIN CONTENT SECTION -->
 <section class="mainContent clearfix productsContent">
   <div class="container">
