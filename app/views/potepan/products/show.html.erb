@@ -7,11 +7,11 @@
     <div class="row singleProduct">
       <div class="col-xs-12">
         <div class="media">
-          <%= render partial: 'potepan/products/thumbnail', :locals => { product: @product } %>
-          <%= render partial: 'potepan/products/product_body', :locals => { product: @product } %>
+          <%= render 'thumbnail', product: @product %>
+          <%= render 'product_body', product: @product %>
         </div>
       </div>
     </div>
-    <%= render partial: 'potepan/products/related_products', :locals => { products: @related_products } %>
+    <%= render 'related_products', products: @related_products %>
   </div>
 </section>
