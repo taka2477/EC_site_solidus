@@ -45,7 +45,7 @@ RSpec.describe Potepan::ProductsController, type: :controller do
       end
     end
 
-    context "fixed number of related_products" do
+    context "shows fixed number of related_products" do
       let!(:related_shirt) { create_list(:product, 8, taxons: [shirt]) }
 
       it "assigns the number of related_products" do
