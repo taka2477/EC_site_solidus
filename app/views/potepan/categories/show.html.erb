@@ -1,0 +1,17 @@
+<% provide(:title, @taxon.name) %>
+<%= render 'light_section', taxon: @taxon %>
+<!-- MAIN CONTENT SECTION -->
+<section class="mainContent clearfix productsContent">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-4 col-xs-12 sideBar">
+        <%= render 'taxonomies', taxonomies: @taxonomies %>
+        <%= render 'search' %>
+        <div class="row">
+          <%= render :partial => 'products', :collection => @products, as: :product %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%= render 'partners_logo' %>
