@@ -33,7 +33,12 @@ RSpec.feature "Products", type: :feature do
   scenario 'displays the contents of main product properly' do
     within('.singleProduct') do
       expect(page).to have_current_path(potepan_product_path(ruby_shirt.id))
-      expect(page).to have_link '一覧ページへ戻る'
+      within('.list-inline') do
+        expect(page).to have_link "To Categories"
+        #expect(page).to have_link "To Brand"
+        #click_on "To Categories"
+        #find('#fa fa-reply', text: 'To Brand', visible: false)
+      end
       expect(page).to have_selector 'h2', text: ruby_shirt.name
       expect(page).to have_selector 'h3', text: ruby_shirt.price
       expect(page).to have_content ruby_shirt.description

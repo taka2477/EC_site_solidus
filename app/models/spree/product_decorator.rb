@@ -1,4 +1,4 @@
 Spree::Product.class_eval do
-  scope :neat_display, -> { limit(8).distinct.reject { |product| product == @product }.shuffle }
-  scope :take_img_price, -> { includes(master: [:images, :default_price]) }
+  scope :includes_img_price, -> { includes(master: [:images, :default_price]) }
+  scope :neat_display, ->(product) { where.not(id: product).distinct.limit 8 }
 end

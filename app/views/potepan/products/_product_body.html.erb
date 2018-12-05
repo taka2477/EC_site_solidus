@@ -1,8 +1,15 @@
 <div class="media-body">
   <ul class="list-inline">
     <li>
-      <%= link_to potepan_category_path(1) do %>
-        <i class="fa fa-reply" aria-hidden="true"></i>一覧ページへ戻る
+      <% product.taxons.pluck(:taxonomy_id).map.with_index do |index, i| %>
+        <%= link_to potepan_category_path(index) do %>
+          <i class="fa fa-reply" aria-hidden="true"></i>
+          <% if i.zero? %>
+            To Categories<br>
+          <% else %>
+            To Brand
+          <% end %>
+        <% end %>
       <% end %>
     </li>
     <!-- <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Share This</a></li> -->
