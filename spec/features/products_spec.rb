@@ -30,18 +30,30 @@ RSpec.feature "Products", type: :feature do
     end
   end
 
-  scenario 'displays the contents of main product properly' do
-    within('.singleProduct') do
-      expect(page).to have_current_path(potepan_product_path(ruby_shirt.id))
-      within('.list-inline') do
-        expect(page).to have_link "To Categories"
-        #expect(page).to have_link "To Brand"
-        #click_on "To Categories"
-        #find('#fa fa-reply', text: 'To Brand', visible: false)
+  context 'using ruby_shoes' do
+    background do
+      visit potepan_product_path(ruby_shoes.id)
+    end
+
+    scenario 'contents of main product properly' do
+      expect(page).to have_selector 'h2', text: ruby_shoes.name
+      expect(page).to have_selector 'h3', text: ruby_shoes.price
+      expect(page).to have_content ruby_shoes.description
+    end
+
+    scenario 'user can visit category pages by clicking' do
+      within('.singleProduct') do
+        expect(page).to have_current_path(potepan_product_path(ruby_shoes.id))
+        within('.media-body', visible: false) do
+          expect(page).to have_link "To Categories"
+          click_on "To Categories"
+          expect(page).to have_current_path(potepan_category_path(shoes.id))
+          visit potepan_product_path(ruby_shoes.id)
+          expect(page).to have_link "To Brand"
+          click_on "To Brand"
+          expect(page).to have_current_path(potepan_category_path(ruby.id))
+        end
       end
-      expect(page).to have_selector 'h2', text: ruby_shirt.name
-      expect(page).to have_selector 'h3', text: ruby_shirt.price
-      expect(page).to have_content ruby_shirt.description
     end
   end
 

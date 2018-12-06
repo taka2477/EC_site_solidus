@@ -1,7 +1,7 @@
 <div class="media-body">
   <ul class="list-inline">
     <li>
-      <% product.taxons.pluck(:taxonomy_id).map.with_index do |index, i| %>
+      <% product.taxons.pluck(:id).map.with_index do |index, i| %>
         <%= link_to potepan_category_path(index) do %>
           <i class="fa fa-reply" aria-hidden="true"></i>
           <% if i.zero? %>
