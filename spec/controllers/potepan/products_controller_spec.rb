@@ -46,10 +46,10 @@ RSpec.describe Potepan::ProductsController, type: :controller do
     end
 
     context "shows fixed number of related_products" do
-      let!(:related_shirt) { create_list(:product, 4, taxons: [shirt]) }
+      let!(:related_shirt) { create_list(:product, 8, taxons: [shirt]) }
 
       it "assigns the number of related_products" do
-        expect(assigns(:related_products).size).to eq 4
+        expect(assigns(:related_products).size).to eq 8
       end
     end
   end

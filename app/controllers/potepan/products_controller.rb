@@ -1,5 +1,5 @@
 class Potepan::ProductsController < ApplicationController
-  RELATED_PRODUCTS_LIMITATION = 4
+  RELATED_PRODUCTS_LIMITATION = 8
 
   def show
     @product = Spree::Product.find(params[:id])
