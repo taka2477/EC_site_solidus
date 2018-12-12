@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 RSpec.feature "Products", type: :feature do
-  given(:brand) { create(:taxonomy, name: "brand") }
-  given(:ruby) { create(:taxon, name: "ruby", parent: brand.root, taxonomy: brand) }
-  given!(:ruby_bag) { create(:product, name: "ruby_bag", price: '16.66', taxons: [ruby]) }
-  given!(:ruby_shirt) { create(:product, name: "ruby_shirt", price: '17.77', taxons: [ruby]) }
+  given(:brand) { create(:taxonomy, name: "Brand") }
+  given(:ruby) { create(:taxon, name: "Ruby", parent: brand.root, taxonomy: brand) }
+  given!(:ruby_bag) { create(:product, name: "RubyBag", price: '16.66', taxons: [ruby]) }
+  given!(:ruby_shirt) { create(:product, name: "RubyShirt", price: '17.77', taxons: [ruby]) }
 
-  given(:category) { create(:taxonomy, name: "category") }
-  given(:shoes) { create(:taxon, name: "shoes", parent: category.root, taxonomy: category) }
-  given!(:unrelated_shoes) { create(:product, name: "unrelated_shoes", price: '99.99', taxons: [shoes]) }
-  given!(:ruby_shoes) { create(:product, name: "ruby_shoes", price: '88.88', taxons: [shoes, ruby]) }
+  given(:category) { create(:taxonomy, name: "Category") }
+  given(:shoes) { create(:taxon, name: "Shoes", parent: category.root, taxonomy: category) }
+  given!(:unrelated_shoes) { create(:product, name: "HogeShoes", price: '99.99', taxons: [shoes]) }
+  given!(:ruby_shoes) { create(:product, name: "RubyShoes", price: '88.88', taxons: [shoes, ruby]) }
 
   background do
     visit potepan_product_path(ruby_shirt.id)
