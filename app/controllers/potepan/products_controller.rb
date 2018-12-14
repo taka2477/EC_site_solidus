@@ -4,6 +4,6 @@ class Potepan::ProductsController < ApplicationController
   def show
     @product = Spree::Product.find(params[:id])
     @related_products = Spree::Product.
-      other_products(@product.taxons, @product, RELATED_PRODUCTS_LIMITATION)
+      other_products(@product).limit(RELATED_PRODUCTS_LIMITATION)
   end
 end
