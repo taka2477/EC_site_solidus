@@ -7,11 +7,18 @@
     <div class="row singleProduct">
       <div class="col-xs-12">
         <div class="media">
-          <%= render 'potepan/products/thumbnail' %>
-          <%= render 'potepan/products/product_body' %>
+          <%= render 'thumbnail', product: @product %>
+          <%= render 'product_body', product: @product %>
         </div>
       </div>
     </div>
-    <%= render 'potepan/products/related_products' %>
+    <div class="row productsContent">
+      <div class="col-xs-12">
+        <div class="page-header">
+          <h4>関連商品</h4>
+        </div>
+      </div>
+      <%= render partial: 'related_products', collection: @related_products, as: :related_product %>
+    </div>
   </div>
 </section>
