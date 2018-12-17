@@ -52,5 +52,13 @@ RSpec.describe Potepan::ProductsController, type: :controller do
         expect(assigns(:related_products).size).to eq 4
       end
     end
+
+    context "when the number of related_products are 8" do
+      let!(:related_shirt) { create_list(:product, 8, taxons: [shirt]) }
+
+      it "assigns if RELATED_PRODUCTS_LIMIT (size = 4) works properly" do
+        expect(assigns(:related_products).size).to eq 4
+      end
+    end
   end
 end
