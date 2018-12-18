@@ -53,7 +53,7 @@ RSpec.describe Potepan::ProductsController, type: :controller do
       end
     end
 
-    context "when the number of related_products are 8" do
+    context "when the number of related_products is 8" do
       let!(:related_shirt) { create_list(:product, 8, taxons: [shirt]) }
 
       it "assigns if RELATED_PRODUCTS_LIMIT (size = 4) works properly" do

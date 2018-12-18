@@ -1,4 +1,4 @@
-<% provide(:title)%>
+<% provide(:title) %>
 
 <%= render 'banner' %>
 
@@ -6,7 +6,7 @@
 <section class="mainContent clearfix">
   <div class="container">
     <%= render 'popular_items' %>
-    <%= render 'new_items' %>
+    <%= render 'new_items', new_products: @latest_products %>
     <%= render 'useful_articles' %>
   </div>
 </section>
