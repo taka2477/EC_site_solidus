@@ -9,7 +9,6 @@ end
 
 gem 'rails',        '~> 5.2.1'
 gem 'bootsnap', require: false
-gem 'mysql2',       '~> 0.5.2'
 gem 'puma',         '~> 3.7'
 gem 'sass-rails',   '~> 5.0'
 gem 'uglifier',     '>= 1.3.0'
@@ -31,6 +30,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'capybara'
   gem 'bullet'
+  gem 'mysql2',       '~> 0.5.2'
 end
 
 group :development do
@@ -40,6 +40,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop-airbnb'
   gem 'spring-commands-rspec'
+end
+
+group :production do
+  gem 'pg'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
