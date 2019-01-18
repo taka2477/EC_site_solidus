@@ -1,3 +1,6 @@
+# Heroku
+https://potepan-solidus-ec-site.herokuapp.com/potepan/categories/1
+
 # ポテパンキャンプECサイトリポジトリ
 
 開発環境
